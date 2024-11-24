@@ -19,8 +19,10 @@
             <a class="nav-linkHistorial" href="#" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i
                     class="bi bi-person me-2"></i> Ver perfil</a>
             <a class="nav-linkHistorial" href="recuperar_psw.html"><i class="bi bi-key me-2"></i> Cambiar contraseña</a>
-            <a class="nav-linkHistorial" href="#"><i class="bi bi-credit-card me-2"></i> Agregar Pagos</a>
-            <a class="nav-linkHistorial" href="#"><i class="bi bi-wallet me-2"></i> Agregar Ingresos</a>
+            <a class="nav-linkHistorial" href="#" data-bs-toggle="modal" data-bs-target="#registroPagoModal"><i
+                    class="bi bi-credit-card me-2"></i> Agregar Pagos</a>
+            <a class="nav-linkHistorial" href="#" data-bs-toggle="modal" data-bs-target="#agregarIngresosModal"><i
+                    class="bi bi-wallet me-2"></i> Agregar Ingresos</a>
             <a class="nav-linkHistorial active" href="historialPagos.html"><i class="bi bi-clock-history me-2"></i>
                 Historial
                 de
@@ -68,18 +70,160 @@
         </div>
     </div>
 
+    <!-- Modal de Registro de pago -->
+    <div class="modal" id="registroPagoModal" tabindex="-1" aria-labelledby="registroPagoModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center align-items-center">
+            <div class="cardRP">
+                <div class="headerRP">
+                    <h1>Registro de pago</h1>
+                </div>
+
+                <div class="form-container contenedorForm">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="nombrePago">Nombre del pago</label>
+                            <input type="text" id="nombrePago" placeholder="Ingrese el nombre del pago">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="totalDeuda">Total de la deuda</label>
+                            <input type="text" id="totalDeuda" placeholder="Ingrese el total de la deuda">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numeroCuotas">Número de cuotas</label>
+                            <input type="number" id="numeroCuotas" placeholder="Ingrese el número de cuotas">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="porcentajeInteres">Porcentaje de interés</label>
+                            <input type="text" id="porcentajeInteres" placeholder="Ingrese el porcentaje de interés">
+                        </div>
+
+                        <button type="submit" class="btnH btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Agregar ingresos -->
+    <div class="modal" id="agregarIngresosModal" tabindex="-1" aria-labelledby="agregarIngresosModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center align-items-center">
+            <div class="cardRP">
+                <div class="headerRP">
+                    <h1>Agregar Ingresos</h1>
+                </div>
+
+                <div class="form-container contenedorForm">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="nombrePago">Ingresos totales</label>
+                            <input type="text" id="nombrePago" placeholder="Ingrese el nombre del pago">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="periodicidadIngresos">Periodicidad de ingresos</label>
+                            <select id="periodicidadIngresos" class="form-control" required>
+                                <option value="" disabled selected>Seleccione...</option>
+                                <option value="diario">Diario</option>
+                                <option value="semanal">Semanal</option>
+                                <option value="mensual">Mensual</option>
+                                <option value="semestral">Semestral</option>
+                                <option value="anual">Anual</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btnH btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Agregar Pagos Plus -->
+    <div class="modal" id="agregarPagoPlusModal" tabindex="-1" aria-labelledby="agregarPagoPlusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center align-items-center">
+            <div class="cardRP">
+                <div class="headerRP">
+                    <h1>Agregar pago</h1>
+                </div>
+
+                <div class="form-container contenedorForm">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="montoPagoPlus">Monto de pago</label>
+                            <input type="text" id="montoPagoPlus" placeholder="Ingrese el monto del pago">
+                        </div>
+
+                        <!-- Recibo con ícono dentro del input -->
+                        <div class="form-group position-relative">
+                            <label for="recibo">Recibo</label>
+                            <input type="text" id="recibo" placeholder="Sube tu recibo" class="form-control pe-5">
+                            <i class="bi bi-image position-absolute end-0 top-50 translate-middle-y me-2"
+                                style="margin-top: 2vh;"></i>
+                        </div>
+
+                        <!-- Seleccionar deuda con ícono dentro del select -->
+                        <div class="form-group position-relative">
+                            <label for="seleccionDeuda">Selecciona tu deuda</label>
+                            <select id="seleccionDeuda" class="form-control pe-5" required>
+                                <option value="" disabled selected>Seleccione...</option>
+                                <option value="diario">koaj</option>
+                            </select>
+                            <i class="bi bi-chevron-down position-absolute end-0 top-50 translate-middle-y me-2"
+                                style="margin-top: 2vh;"></i>
+                        </div>
+
+                        <button type="submit" class="btnH btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal calendario -->
+    <div class="modal" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Calendario (sin campo de texto, solo calendario visible) -->
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="main-content">
         <!-- Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
+            <span class="fw-bold fs-4 me-3">PayVue</span>
 
-            <div class="search-container flex-grow-1 me-4">
-                <input type="text" class="form-control search-barH" placeholder="Search...">
-            </div>
             <div class="profile-icon"></div>
             <div class="menu-toggle" id="menuToggle">
-                <i class="bi bi-list"></i> <!-- Icono de tres rayas -->
+                <i class="bi bi-list"></i>
             </div>
         </div>
+        <div class="col d-flex justify-content-end align-items-center gap-3">
+            <div class="search-container">
+                <input type="text" class="form-control search-barH" placeholder="Buscar recibo">
+            </div>
+            <button class="btn btn-light" style="margin-right: 52vw;">
+                <i class="bi bi-funnel"></i> Filtrar
+            </button>
+            <button class="btn btn-light" id="openCalendarButton">
+                <i class="bi bi-calendar"></i>
+            </button>
+            <button class="btnMas btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPagoPlusModal">
+                <i class="bi bi-plus-lg"></i>
+            </button>
+        </div>
+
         <!-- Tabla -->
         <div class="table-responsive">
             <table class="table">
@@ -221,6 +365,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/historialPagos.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Bootstrap JS (con Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 </body>
 
 </html>

@@ -55,6 +55,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: #e9ecef;
+    margin-left: 84vw;
 }
 
 .profile-icon-card {
@@ -80,8 +81,23 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.cardRP {
+    background: white;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .header {
     background-color: #1a1f1c;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerRP {
     height: 150px;
     position: relative;
     display: flex;
@@ -174,39 +190,53 @@
 
 /* Estilos para la tabla */
 .table-responsive {
-    background-color: white; /* Fondo blanco para toda la tabla */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: white;
+    /* Fondo blanco para toda la tabla */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra */
     padding: 10px;
-    margin-top: 20px; /* Espaciado superior */
+    margin-top: 20px;
+    /* Espaciado superior */
 }
 
 .table {
     width: 100%;
-    border-collapse: collapse; /* Elimina bordes dobles entre celdas */
+    border-collapse: collapse;
+    /* Elimina bordes dobles entre celdas */
     color: #333;
 }
 
 .table thead {
-    background-color: white; /* Fondo blanco para el encabezado */
-    border-bottom: 2px solid #dee2e6; /* Línea inferior del encabezado */
+    background-color: white;
+    /* Fondo blanco para el encabezado */
+    border-bottom: 2px solid #dee2e6;
+    /* Línea inferior del encabezado */
     font-weight: bold;
 }
 
 .table th,
 .table td {
-    padding: 12px; /* Espaciado interno */
-    text-align: center; /* Centrar contenido */
-    font-size: 14px; /* Tamaño de texto */
-    border-bottom: 1px solid #dee2e6; /* Línea de separación entre filas */
-    background-color: white; /* Fondo blanco para filas */
+    padding: 12px;
+    /* Espaciado interno */
+    text-align: center;
+    /* Centrar contenido */
+    font-size: 14px;
+    /* Tamaño de texto */
+    border-bottom: 1px solid #dee2e6;
+    /* Línea de separación entre filas */
+    background-color: white;
+    /* Fondo blanco para filas */
 }
 
 .table td img {
-    border-radius: 50%; /* Imagen de usuario redonda */
+    border-radius: 50%;
+    /* Imagen de usuario redonda */
     width: 40px;
     height: 40px;
-    object-fit: cover; /* Ajustar imagen sin deformar */
+    object-fit: cover;
+    /* Ajustar imagen sin deformar */
 }
 
 /* Botón de opciones */
@@ -220,4 +250,29 @@
 
 .table .btn-options:hover {
     color: #495057;
+}
+
+.containerHeader {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.btnMas {
+    width: 1.8vw;
+    height: 3.6vh;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+.search-barH {
+    width: 30vw !important;
 }
