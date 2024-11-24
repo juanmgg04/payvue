@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayVue APP</title>
+    <link rel="stylesheet" href="../css/historialPagos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="mb-4">PayVue</h4>
+        <nav class="nav flex-column">
+            <a class="nav-linkHistorial" href="home.html"><i class="bi bi-house-door me-2"></i> Inicio</a>
+            <a class="nav-linkHistorial" href="#" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i
+                    class="bi bi-person me-2"></i> Ver perfil</a>
+            <a class="nav-linkHistorial" href="recuperar_psw.html"><i class="bi bi-key me-2"></i> Cambiar contraseña</a>
+            <a class="nav-linkHistorial" href="#"><i class="bi bi-credit-card me-2"></i> Agregar Pagos</a>
+            <a class="nav-linkHistorial" href="#"><i class="bi bi-wallet me-2"></i> Agregar Ingresos</a>
+            <a class="nav-linkHistorial active" href="historialPagos.html"><i class="bi bi-clock-history me-2"></i>
+                Historial
+                de
+                pagos</a>
+            <a class="nav-linkHistorial" href="login.html"><i class="bi bi-box-arrow-left me-2"></i> Cerrar sesión</a>
+        </nav>
+    </div>
+
+    <!-- Modal de Editar Perfil -->
+    <div class="modal" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog d-flex justify-content-center align-items-center">
+            <div class="cardH">
+                <div class="header">
+                    <h1>Editar perfil</h1>
+                </div>
+
+                <div class="profile-image-container text-center">
+                    <div id="profileImage" class="profile-icon-card rounded-circle"></div>
+                    <p class="change-photo-text" onclick="document.getElementById('fileInput').click()">Cambiar foto</p>
+                    <input type="file" id="fileInput" accept="image/*">
+                </div>
+
+                <div class="form-container">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="username">Nombre de usuario</label>
+                            <input type="text" id="username" placeholder="username">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="email@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" placeholder="">
+                        </div>
+
+                        <button type="submit" class="btnH btn-primary">Actualizar</button>
+                        <a href="home.html"><button type="button" class="btnH btn-secondary">Volver</button></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div class="search-container flex-grow-1 me-4">
+                <input type="text" class="form-control search-barH" placeholder="Search...">
+            </div>
+            <div class="profile-icon"></div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="bi bi-list"></i> <!-- Icono de tres rayas -->
+            </div>
+        </div>
+        <!-- Tabla -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="table">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Restante y cuotas faltantes</th>
+                        <th scope="col">Monto de pago</th>
+                        <th scope="col">Fecha de pago</th>
+                        <th scope="col">Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <!-- Repite esta fila para añadir más registros -->
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Moto</td>
+                        <td>2.100.000 - 20 cuotas</td>
+                        <td>$250.000</td>
+                        <td>28-11-2004</td>
+                        <td>
+                            <img src="../images/logo.png" alt="Usuario" class="rounded-circle"
+                                style="width: 40px; height: 40px;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/historialPagos.js"></script>
+</body>
+
+</html>
