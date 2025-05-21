@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Container } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Login() {
+function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', {
+      const response = await axios.post('http://localhost:5000/auth/register', {
         email,
         password,
       });
       alert(response.data.message);
     } catch (error) {
-      alert(error.response?.data?.error || 'Error al iniciar sesión');
+      alert(error.response.data.error || 'Error al registrar');
     }
   };
 
@@ -32,9 +30,9 @@ function Login() {
         }}
       >
         <Typography component="h1" variant="h5">
-          Iniciar Sesión
+          Crear Cuenta
         </Typography>
-        <Box component="form" onSubmit={handleLogin} sx={{ mt: 3 }}>
+        <Box component="form" onSubmit={handleRegister} sx={{ mt: 3 }}>
           <TextField
             margin="normal"
             required
@@ -55,7 +53,7 @@ function Login() {
             label="Contraseña"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -65,20 +63,12 @@ function Login() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Iniciar Sesión
+            Registrarse
           </Button>
         </Box>
-        <Button
-          fullWidth
-          variant="outlined"
-          sx={{ mt: 2 }}
-          onClick={() => navigate('/register')}
-        >
-          Registrarse
-        </Button>
       </Box>
     </Container>
   );
 }
 
-export default Login;
+export default Register;
