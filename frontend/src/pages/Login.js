@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { showSuccess, showError } from '../utils/alert';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -15,9 +16,10 @@ function Login() {
         email,
         password,
       });
-      alert(response.data.message);
+      showSuccess(response.data.message);
+      navigate('/dashboard');
     } catch (error) {
-      alert(error.response?.data?.error || 'Error al iniciar sesión');
+      showError(error.response?.data?.error || 'Error al iniciar sesión');
     }
   };
 
