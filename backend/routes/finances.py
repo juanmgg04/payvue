@@ -10,9 +10,18 @@ from datetime import datetime
 bp = Blueprint('finances', __name__, url_prefix='/finances')
 
 class IncomeAPI:
+    """
+    API para manejar ingresos.
+    Proporciona endpoints para crear, editar, eliminar y listar ingresos.
+    """
     @staticmethod
     @bp.route('/income', methods=['POST'])
     def add_income():
+        """
+        Endpoint para agregar un nuevo ingreso.
+        Requiere un JSON con los campos 'amount' y 'date'.
+        Retorna un mensaje de éxito o error.
+        """
         data = request.json
         try:
             income = IncomeService.create_income(data)
@@ -25,6 +34,11 @@ class IncomeAPI:
     @staticmethod
     @bp.route('/income/<int:id>', methods=['PUT'])
     def edit_income(id):
+        """
+        Endpoint para editar un ingreso existente.
+        Requiere un JSON con los campos a actualizar.
+        Retorna un mensaje de éxito o error.
+        """
         data = request.json
         try:
             IncomeService.update_income(id, data)
@@ -35,6 +49,11 @@ class IncomeAPI:
     @staticmethod
     @bp.route('/income/<int:id>', methods=['DELETE'])
     def delete_income(id):
+        """
+        Endpoint para eliminar un ingreso existente.
+        Requiere el ID del ingreso a eliminar.
+        Retorna un mensaje de éxito o error.
+        """
         try:
             IncomeService.delete_income(id)
             return jsonify({"message": "Ingreso eliminado exitosamente"}), 200
@@ -44,6 +63,10 @@ class IncomeAPI:
     @staticmethod
     @bp.route('/income', methods=['GET'])
     def get_incomes():
+        """
+        Endpoint para obtener todos los ingresos registrados.
+        Retorna una lista de ingresos con sus detalles.
+        """
         incomes = IncomeService.get_all_incomes()
         return jsonify([{
             "id": income.id,
@@ -53,9 +76,17 @@ class IncomeAPI:
         } for income in incomes]), 200
 
 class DebtAPI:
+    """
+    API para manejar deudas.
+    """
     @staticmethod
     @bp.route('/debt', methods=['POST'])
     def add_debt():
+        """
+        Endpoint para agregar una nueva deuda.
+        Requiere un JSON con los campos necesarios para crear una deuda.
+        Retorna un mensaje de éxito o error.
+        """
         data = request.json
         try:
             DebtService.create_debt(data)
@@ -68,6 +99,10 @@ class DebtAPI:
     @staticmethod
     @bp.route('/debt', methods=['GET'])
     def get_debts():
+        """
+        Endpoint para obtener todas las deudas registradas.
+        Retorna una lista de deudas con sus detalles.
+        """
         debts = DebtService.get_all_debts()
         result = []
         for d in debts:
@@ -91,6 +126,11 @@ class DebtAPI:
     @staticmethod
     @bp.route('/debt/<int:id>', methods=['PUT'])
     def edit_debt(id):
+        """
+        Endpoint para editar una deuda existente.
+        Requiere un JSON con los campos a actualizar.
+        Retorna un mensaje de éxito o error.
+        """
         data = request.json
         try:
             DebtService.update_debt(id, data)
@@ -101,6 +141,12 @@ class DebtAPI:
     @staticmethod
     @bp.route('/debt/<int:id>', methods=['DELETE'])
     def delete_debt(id):
+        """
+        Endpoint para eliminar una deuda existente.
+        Requiere el ID de la deuda a eliminar.
+        Retorna un mensaje de éxito o error.
+        """
+
         try:
             DebtService.delete_debt(id)
             return jsonify({"message": "Deuda eliminada exitosamente"}), 200
@@ -108,9 +154,19 @@ class DebtAPI:
             return jsonify({"error": str(e)}), 500
 
 class PaymentAPI:
+    """
+    API para manejar pagos.
+    Proporciona endpoints para agregar, obtener y eliminar pagos.
+    """
     @staticmethod
     @bp.route('/payment', methods=['POST'])
     def add_payment():
+        """
+        Endpoint para agregar un nuevo pago.
+        Requiere un formulario con los campos 'amount', 'debt_id', 'file' y 'date'.
+        Retorna un mensaje de éxito o error.
+        """
+
         amount = request.form.get('amount')
         debt_id = request.form.get('debt_id')
         file = request.files.get('file')
@@ -126,6 +182,10 @@ class PaymentAPI:
     @staticmethod
     @bp.route('/payment', methods=['GET'])
     def get_payments():
+        """
+        Endpoint para obtener todos los pagos registrados.
+        Retorna una lista de pagos con sus detalles, incluyendo la deuda asociada.
+        """
         payments = PaymentService.get_all_payments()
         result = []
         for p in payments:
@@ -149,4 +209,7 @@ class PaymentAPI:
     @staticmethod
     @bp.route('/receipt/<filename>', methods=['GET'])
     def get_receipt(filename):
+        """
+        Endpoint para obtener un recibo de pago.
+        """
         return send_from_directory(UPLOAD_FOLDER, filename)

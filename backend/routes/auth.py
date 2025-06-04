@@ -6,6 +6,11 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/register', methods=['POST'])
 def register():
+    """
+    Registra un nuevo usuario.
+    Requiere un JSON con los campos 'email' y 'password'.
+    Retorna un mensaje de éxito o error.
+    """
     data = request.json
     if User.query.filter_by(email=data['email']).first():
         return jsonify({"error": "El correo ya está registrado"}), 400
@@ -18,6 +23,11 @@ def register():
 
 @bp.route('/login', methods=['POST'])
 def login():
+    """
+    Inicia sesión de un usuario.
+    Requiere un JSON con los campos 'email' y 'password'.
+    Retorna un mensaje de éxito o error.
+    """
     data = request.json
     user = User.query.filter_by(email=data['email']).first()
     if user and user.check_password(data['password']):
@@ -26,4 +36,7 @@ def login():
 
 @bp.route('/logout', methods=['POST'])
 def logout():
+    """
+    Cierra la sesión de un usuario.
+    """
     return jsonify({"message": "Sesión cerrada exitosamente"}), 200
