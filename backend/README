@@ -39,6 +39,9 @@
    python -m unittest discover tests
    ```
 
+## Como usar el flake8
+
+Usa el comando ``flake8 --exclude=venv,__pycache__,migrations`` para correr el flake ignorando esos archivos/carpetas
 ---
 
 ## Notas
