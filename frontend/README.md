@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Frontend PayVue
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Este es el frontend de PayVue, una aplicación web para la gestión de finanzas personales, desarrollada en React. Permite registrar ingresos, deudas, pagos y visualizar reportes y estadísticas de manera sencilla.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Estructura del proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **src/**
+  - **components/**: Componentes reutilizables (Sidebar, FinanceForm, etc).
+  - **pages/**: Vistas principales (Dashboard, Records, PaymentHistory, Login, Register).
+  - **utils/**: Utilidades como alertas personalizadas.
+  - **App.js**: Configuración de rutas principales.
+  - **index.js**: Punto de entrada de la aplicación.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Scripts disponibles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En la carpeta del frontend puedes ejecutar:
 
-### `npm run build`
+- `npm start`  
+  Inicia la app en modo desarrollo.  
+  Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `npm run build`  
+  Genera una versión optimizada para producción en la carpeta `build`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `npm test`  
+  Ejecuta los tests de React (si tienes tests implementados).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Dependencias principales
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **React**: Librería principal para la interfaz.
+- **axios**: Para llamadas HTTP a la API backend.
+- **react-router-dom**: Navegación entre páginas.
+- **bootstrap** y **bootstrap-icons**: Estilos y componentes visuales.
+- **chart.js** y **react-chartjs-2**: Gráficas y reportes.
+- **sweetalert2**: Alertas y confirmaciones visuales.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Configuración y uso
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Instala las dependencias:
+   ```
+   npm install
+   ```
 
-## Learn More
+2. Inicia el servidor de desarrollo:
+   ```
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Asegúrate de que el backend esté corriendo en [http://localhost:5000](http://localhost:5000) para que la app funcione correctamente.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Personalización
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Puedes modificar los estilos en `src/index.css` o en los archivos CSS de cada componente.
+- Las rutas principales están definidas en `src/App.js`.
+- Las alertas personalizadas están en `src/utils/alert.js`.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Notas
 
-### Making a Progressive Web App
+- El frontend está preparado para consumir la API REST del backend PayVue.
+- Si cambias la URL del backend, actualízala en los archivos donde se hacen peticiones con axios.
+- Para producción, genera el build y sirve los archivos estáticos desde tu servidor preferido.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Créditos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Desarrollado por [Tu Nombre o Equipo].
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

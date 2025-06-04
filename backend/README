@@ -1,0 +1,53 @@
+# Backend PayVue
+
+## Arquitectura
+
+- **app.py**: Punto de entrada de la aplicación Flask.
+- **models/**: Modelos de base de datos (User, Debt, Payment, Income).
+- **routes/**: Blueprints de rutas (auth, finances, user).
+- **services/**: Lógica de negocio desacoplada de las rutas.
+- **utils/**: Utilidades como manejo de archivos.
+- **tests/**: Pruebas unitarias y de integración.
+
+## Endpoints principales
+
+### Autenticación
+- `POST /auth/register` — Registro de usuario
+- `POST /auth/login` — Login de usuario
+- `POST /auth/logout` — Logout
+
+### Finanzas
+- `POST /finances/income` — Crear ingreso
+- `GET /finances/income` — Listar ingresos
+- `POST /finances/debt` — Crear deuda
+- `GET /finances/debt` — Listar deudas
+- `POST /finances/payment` — Registrar pago (requiere archivo)
+- `GET /finances/payment` — Listar pagos
+
+## Cómo correr los tests
+
+1. Instala dependencias:
+   ```
+   pip install -r requirements.txt
+   ```
+2. Ubícate en la carpeta backend:
+   ```
+   cd backend
+   ```
+3. Ejecuta los tests:
+   ```
+   python -m unittest discover tests
+   ```
+
+---
+
+## Notas
+
+- Usa SQLite por defecto (`payvue.db`).
+- Los tests usan una base de datos en memoria y no afectan tus datos reales.
+- Para desarrollo, ejecuta:
+  ```
+  python app.py
+  ```
+
+---
