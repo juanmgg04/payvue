@@ -4,6 +4,7 @@ from models.user import User
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+
 @bp.route('/register', methods=['POST'])
 def register():
     """
@@ -21,6 +22,7 @@ def register():
     db.session.commit()
     return jsonify({"message": "Usuario registrado exitosamente"}), 201
 
+
 @bp.route('/login', methods=['POST'])
 def login():
     """
@@ -33,6 +35,7 @@ def login():
     if user and user.check_password(data['password']):
         return jsonify({"message": "Inicio de sesión exitoso"}), 200
     return jsonify({"error": "Credenciales inválidas"}), 401
+
 
 @bp.route('/logout', methods=['POST'])
 def logout():

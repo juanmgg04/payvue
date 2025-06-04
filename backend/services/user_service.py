@@ -1,5 +1,6 @@
 from models import User, db
 
+
 def update_email(user_id, new_email):
     user = User.query.get(user_id)
     if not user:

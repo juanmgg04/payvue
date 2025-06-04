@@ -1,4 +1,5 @@
-from  models import db
+from models import db
+
 
 class Income(db.Model):
     id = db.Column(db.Integer, primary_key=True)

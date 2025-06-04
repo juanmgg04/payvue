@@ -1,6 +1,7 @@
-from  models import db
-from  models.income import Income
+from models import db
+from models.income import Income
 from datetime import datetime
+
 
 class IncomeService:
     """

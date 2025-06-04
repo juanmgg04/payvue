@@ -1,5 +1,6 @@
 from models import db
 
+
 class Debt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
@@ -13,6 +14,6 @@ class Debt(db.Model):
     paid = db.Column(db.Boolean, default=False)
     payments = db.relationship(
         'Payment',
-        backref='debt',  # Esto crea el atributo debt en Payment automáticamente
+        backref='debt',
         cascade='all, delete-orphan'
     )

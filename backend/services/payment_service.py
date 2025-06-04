@@ -3,6 +3,7 @@ from models.payment import Payment
 from models.debt import Debt
 from datetime import datetime
 
+
 class PaymentService:
     """Servicio para la gestión de pagos."""
 

@@ -2,6 +2,7 @@ from models import db
 from models.debt import Debt
 from datetime import datetime
 
+
 class DebtService:
     """
     Servicio para la gestión de deudas.

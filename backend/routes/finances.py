@@ -4,12 +4,13 @@ from services.income_service import IncomeService
 from services.payment_service import PaymentService
 from utils.file_utils import save_file, UPLOAD_FOLDER
 from models.debt import Debt
-from models.payment import Payment
 from datetime import datetime
 
 bp = Blueprint('finances', __name__, url_prefix='/finances')
 
+
 class IncomeAPI:
+
     """
     API para manejar ingresos.
     Proporciona endpoints para crear, editar, eliminar y listar ingresos.
@@ -27,7 +28,7 @@ class IncomeAPI:
             income = IncomeService.create_income(data)
             return jsonify({"message": "Ingreso registrado exitosamente"}), 201
         except KeyError as e:
-            return jsonify({"error": f"Falta el campo requerido: {str(e)}"}), 400
+            return jsonify({"error": f"Falta campo requerido: {str(e)}"}), 400
         except Exception as e:
             return jsonify({"error": str(e)}), 500
 
@@ -42,7 +43,7 @@ class IncomeAPI:
         data = request.json
         try:
             IncomeService.update_income(id, data)
-            return jsonify({"message": "Ingreso actualizado exitosamente"}), 200
+            return jsonify({"message": "Ingreso actualizado"}), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
 
@@ -75,6 +76,7 @@ class IncomeAPI:
             "date": income.date.strftime('%Y-%m-%d')
         } for income in incomes]), 200
 
+
 class DebtAPI:
     """
     API para manejar deudas.
@@ -92,7 +94,7 @@ class DebtAPI:
             DebtService.create_debt(data)
             return jsonify({"message": "Deuda registrada exitosamente"}), 201
         except KeyError as e:
-            return jsonify({"error": f"Falta el campo requerido: {str(e)}"}), 400
+            return jsonify({"error": f"Falta campo requerido: {str(e)}"}), 400
         except Exception as e:
             return jsonify({"error": str(e)}), 500
 
@@ -152,6 +154,7 @@ class DebtAPI:
             return jsonify({"message": "Deuda eliminada exitosamente"}), 200
         except Exception as e:
             return jsonify({"error": str(e)}), 500
+
 
 class PaymentAPI:
     """
